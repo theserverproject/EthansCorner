@@ -10,6 +10,7 @@ pipeline {
         sh '(cd $WORKSPACE/SortingAlgorithms && ./gradlew build)'
         sh 'java -jar $WORKSPACE/SortingAlgorithms/build/libs/SortingAlgorithm-1.0-SNAPSHOT.jar 100'
         sh 'mv $WORKSPACE/AlgorithmChart.jpeg $WORKSPACE/SortingAlgorithms/html'
+        sh 'mv $WORKSPACE/index.html $WORKSPACE/SortingAlgorithms/html'
       }
     }
     stage('Test') {
@@ -24,7 +25,6 @@ pipeline {
 
       steps {
         sh 'sshpass -p $ETHANSCORNERPASSWORD scp -r -oStrictHostKeyChecking=no $WORKSPACE/SortingAlgorithms/html/ ethanscorner@$SERVER:$ETHANSCORNERLOCATION'
-        sh 'sshpass -p $ETHANSCORNERPASSWORD scp -r -oStrictHostKeyChecking=no $WORKSPACE/index.html ethanscorner@$SERVER:$ETHANSCORNERLOCATION'
       }
     }
   }
