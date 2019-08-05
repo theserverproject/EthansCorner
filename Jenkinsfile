@@ -9,7 +9,9 @@ pipeline {
         echo "Running Sorts:"
         sh '(cd $WORKSPACE/SortingAlgorithms && ./gradlew build)'
         sh 'java -jar $WORKSPACE/SortingAlgorithms/build/libs/SortingAlgorithm-1.0-SNAPSHOT.jar 100'
-        sh 'mv $WORKSPACE/AlgorithmChart.jpeg $WORKSPACE/SortingAlgorithms/html'
+        sh 'java -jar $WORKSPACE/SortingAlgorithms/build/libs/SortingAlgorithm-1.0-SNAPSHOT.jar 1000'
+        sh 'java -jar $WORKSPACE/SortingAlgorithms/build/libs/SortingAlgorithm-1.0-SNAPSHOT.jar 10000'
+        sh 'mv $WORKSPACE/Charts $WORKSPACE/SortingAlgorithms/html'
         sh 'mv $WORKSPACE/index.html $WORKSPACE/SortingAlgorithms/html'
       }
     }
