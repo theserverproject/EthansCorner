@@ -1,0 +1,3 @@
+[submodule "SortingAlgorithms"]
+	path = SortingAlgorithms
+	url = git@github.com:eetar1/SortingAlgorithms.git
