@@ -7,6 +7,7 @@ pipeline {
     stage('Build') {
       steps {
         echo "Running Sorts:"
+        sh '(cd $WORKSPACE && git submodule foreach git pull origin master)'
         sh '(cd $WORKSPACE/SortingAlgorithms && ./gradlew build)'
         sh 'java -jar $WORKSPACE/SortingAlgorithms/build/libs/SortingAlgorithm-1.0-SNAPSHOT.jar 100'
         sh 'java -jar $WORKSPACE/SortingAlgorithms/build/libs/SortingAlgorithm-1.0-SNAPSHOT.jar 1000'
