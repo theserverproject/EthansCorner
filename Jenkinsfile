@@ -24,6 +24,7 @@ pipeline {
 
       steps {
         sh 'sshpass -p $ETHANSCORNERPASSWORD scp -r -oStrictHostKeyChecking=no $WORKSPACE/SortingAlgorithms/html/ ethanscorner@$SERVER:$ETHANSCORNERLOCATION'
+        sh 'sshpass -p $ETHANSCORNERPASSWORD scp -r -oStrictHostKeyChecking=no $WORKSPACE/index.html ethanscorner@$SERVER:$ETHANSCORNERLOCATION'
       }
     }
   }
